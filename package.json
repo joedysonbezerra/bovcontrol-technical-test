@@ -1,0 +1,8 @@
+{
+  "name": "bovcontrol-technical-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/joedysonbezerra/bovcontrol-technical-test.git",
+  "author": "Joedyson Bezerra <joedysonbezerra@gmail.com>",
+  "license": "MIT"
+}
