@@ -44,4 +44,26 @@ describe('Animals - Integration', () => {
     expect(response.body.type).toBe(animal.body.type);
     expect(response.body.weight).toBe(animal.body.weight);
   });
+
+  it('Should be able update an animal in collection of mongodb', async () => {
+    const animal = await request(app).post('/animals').send({
+      name: 'any_name',
+      dateOfBirth: '2014-07-02T03:00:00.000Z',
+      type: 'cow',
+      weight: 100,
+    });
+    const response = await request(app)
+      .put(`/animals/${animal.body._id}`)
+      .send({
+        name: 'any_name3',
+        weight: 200,
+      });
+
+    expect(response.status).toBe(200);
+    expect(response.body._id).toBe(animal.body._id);
+    expect(response.body.name).toBe('any_name3');
+    expect(response.body.age).toBe(animal.body.age);
+    expect(response.body.type).toBe(animal.body.type);
+    expect(response.body.weight).toBe(200);
+  });
 });
