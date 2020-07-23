@@ -76,4 +76,19 @@ describe('Animal Controller', () => {
       }
     });
   });
+  describe('show', () => {
+    it('Should be able return 400 if no id is provided', async () => {
+      const sut = makeSut();
+
+      const httpRequest = {
+        params: {},
+      };
+      try {
+        await sut.show(httpRequest);
+      } catch (error) {
+        expect(error.statusCode).toBe(400);
+        expect(error).toEqual(new MissingParamError('id'));
+      }
+    });
+  });
 });
