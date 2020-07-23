@@ -1,4 +1,4 @@
-import { RequiredFields } from '../utils/helpers/RequiredFields';
+import { RequiredFields } from '../utils/helpers/validators/RequiredFields';
 import { MissingParamError } from '../utils/errors/MissingParamError';
 
 class AnimalController {

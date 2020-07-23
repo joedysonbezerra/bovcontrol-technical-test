@@ -1,6 +1,6 @@
 import CreateAnimalService from './CreateAnimalService';
-import Animal from '../entities/Animal';
-import { InvalidParamError } from '../utils/errors/InvalidParamError';
+import Animal from '../../entities/Animal';
+import { InvalidParamError } from '../../utils/errors/InvalidParamError';
 
 const makeAnimalRepository = () => {
   class AnimalRepository {
@@ -18,7 +18,7 @@ const makeSut = () => {
 };
 
 describe('CreateAnimalService', () => {
-  it('Should be able return 400 if an invalid age is provided', async () => {
+  it('Should be able return 400 if an invalid dateOfBirth is provided', async () => {
     const sut = makeSut();
 
     const request = {

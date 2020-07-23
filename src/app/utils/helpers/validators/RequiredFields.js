@@ -1,4 +1,4 @@
-import { MissingParamError } from '../errors/MissingParamError';
+import { MissingParamError } from '../../errors/MissingParamError';
 
 export class RequiredFields {
   static validate({ body, requiredFields }) {

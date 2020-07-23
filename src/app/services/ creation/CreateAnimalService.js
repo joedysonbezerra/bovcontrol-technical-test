@@ -1,6 +1,6 @@
 import { isValid } from 'date-fns';
-import { InvalidParamError } from '../utils/errors/InvalidParamError';
-import Animal from '../entities/Animal';
+import { InvalidParamError } from '../../utils/errors/InvalidParamError';
+import Animal from '../../entities/Animal';
 
 class CreateAnimalService {
   constructor(AnimalRepository) {
