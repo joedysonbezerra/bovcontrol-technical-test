@@ -1,13 +1,14 @@
-import { MissingParamError } from '../utils/errors/MissingParamError';
+import { RequiredFields } from '../utils/helpers/RequiredFields';
 
 class AnimalController {
   async store(request, response) {
     const { body } = request;
-    const requiredFields = ['name', 'age', 'type', 'weight'];
 
-    for (const field of requiredFields) {
-      if (!body[field]) throw new MissingParamError(field);
-    }
+    RequiredFields.validate({
+      body,
+      requiredFields: ['name', 'age', 'type', 'weight'],
+    });
+
     return response.send();
   }
 }
