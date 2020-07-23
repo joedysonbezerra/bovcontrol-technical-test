@@ -6,7 +6,7 @@ class ShowAnimalService {
   }
 
   async execute(id) {
-    const animal = await this.AnimalRepository.findOne(id);
+    const animal = await this.AnimalRepository.findById(id);
 
     if (!animal) throw new NotFoundError('Animal');
 

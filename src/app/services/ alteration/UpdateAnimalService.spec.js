@@ -15,12 +15,12 @@ const makeAnimalRepository = () => {
       ];
     }
 
-    async findOne(id) {
+    async findById(id) {
       return this.animalsStub.find((animal) => animal.id === id);
     }
 
     async update(id, body) {
-      const animal = await this.findOne(id);
+      const animal = await this.findById(id);
       return { ...animal, ...body };
     }
   }

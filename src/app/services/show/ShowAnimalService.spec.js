@@ -15,7 +15,7 @@ const makeAnimalRepository = () => {
       ];
     }
 
-    async findOne(id) {
+    async findById(id) {
       return this.animalsStub.find((animal) => animal.id === id);
     }
   }
