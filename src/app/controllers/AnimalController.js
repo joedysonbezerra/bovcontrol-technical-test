@@ -3,6 +3,7 @@ import { RequiredFields } from '../utils/helpers/validators/RequiredFields';
 import { MissingParamError } from '../utils/errors/MissingParamError';
 import AnimalRepositoryMongo from '../repositories/AnimalRepository';
 import CreateAnimalService from '../services/creation/CreateAnimalService';
+import ShowAnimalService from '../services/show/ShowAnimalService';
 
 class AnimalController {
   async store(request, response) {
@@ -26,7 +27,11 @@ class AnimalController {
 
     if (!params.id) throw new MissingParamError('id');
 
-    return response.send();
+    const animal = await new ShowAnimalService(AnimalRepositoryMongo).execute(
+      params.id
+    );
+
+    return response.json(animal);
   }
 
   async update(request, response) {
