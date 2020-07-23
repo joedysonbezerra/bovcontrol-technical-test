@@ -23,4 +23,21 @@ describe('Animal Controller', () => {
       expect(error).toEqual(new MissingParamError('name'));
     }
   });
+  it('Should be able return 400 if no age is provided', async () => {
+    const sut = makeSut();
+
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        type: 'cow',
+        weight: 100,
+      },
+    };
+    try {
+      await sut.store(httpRequest);
+    } catch (error) {
+      expect(error.statusCode).toBe(400);
+      expect(error).toEqual(new MissingParamError('age'));
+    }
+  });
 });
