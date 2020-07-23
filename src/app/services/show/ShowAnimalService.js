@@ -9,6 +9,8 @@ class ShowAnimalService {
     const animal = await this.AnimalRepository.findOne(id);
 
     if (!animal) throw new NotFoundError('Animal');
+
+    return animal;
   }
 }
 
