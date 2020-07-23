@@ -2,11 +2,11 @@ module.exports = {
   bail: 1,
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>//src/app/**/*.js'],
+  roots: ['<rootDir>/src'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],
   testEnvironment: 'node',
-  testMatch: ['tests/**/*.test.js', 'tests/**/*.spec.js'],
   transform: {
     '.(js|jsx|ts|tsx)': '@sucrase/jest-plugin',
   },
