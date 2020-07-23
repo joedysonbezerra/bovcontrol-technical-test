@@ -5,10 +5,14 @@ class UpdateAnimalService {
     this.AnimalRepository = AnimalRepository;
   }
 
-  async execute(id) {
+  async execute(id, body) {
     const animal = await this.AnimalRepository.findOne(id);
 
     if (!animal) throw new NotFoundError('Animal');
+
+    const updatedAnimal = await this.AnimalRepository.update(id, body);
+
+    return updatedAnimal;
   }
 }
 
