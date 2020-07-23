@@ -1,5 +1,8 @@
+import { parseISO } from 'date-fns';
 import { RequiredFields } from '../utils/helpers/validators/RequiredFields';
 import { MissingParamError } from '../utils/errors/MissingParamError';
+import AnimalRepositoryMongo from '../repositories/AnimalRepository';
+import CreateAnimalService from '../services/creation/CreateAnimalService';
 
 class AnimalController {
   async store(request, response) {
@@ -9,8 +12,13 @@ class AnimalController {
       body,
       requiredFields: ['name', 'dateOfBirth', 'type', 'weight'],
     });
+    body.dateOfBirth = parseISO(body.dateOfBirth);
 
-    return response.send();
+    const animal = await new CreateAnimalService(AnimalRepositoryMongo).execute(
+      body
+    );
+
+    return response.json(animal);
   }
 
   async show(request, response) {

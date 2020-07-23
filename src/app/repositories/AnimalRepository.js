@@ -19,4 +19,4 @@ class AnimalRepositoryMongo {
   }
 }
 
-export default AnimalRepositoryMongo;
+export default new AnimalRepositoryMongo();
