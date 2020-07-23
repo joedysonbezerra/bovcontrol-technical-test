@@ -4,6 +4,7 @@ import { MissingParamError } from '../utils/errors/MissingParamError';
 import AnimalRepositoryMongo from '../repositories/AnimalRepository';
 import CreateAnimalService from '../services/creation/CreateAnimalService';
 import ShowAnimalService from '../services/show/ShowAnimalService';
+import UpdateAnimalService from '../services/alteration/UpdateAnimalService';
 
 class AnimalController {
   async store(request, response) {
@@ -39,7 +40,12 @@ class AnimalController {
 
     if (!params.id) throw new MissingParamError('id');
 
-    return response.send();
+    const animal = await new UpdateAnimalService(AnimalRepositoryMongo).execute(
+      params.id,
+      request.body
+    );
+
+    return response.json(animal);
   }
 }
 
