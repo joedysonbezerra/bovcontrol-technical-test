@@ -1,7 +1,7 @@
 import Animals from '../models/animals';
 
 class AnimalRepositoryMongo {
-  async findOne(id) {
+  async findById(id) {
     const animal = await Animals.findById(id);
     return animal;
   }
