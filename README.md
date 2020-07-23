@@ -172,11 +172,11 @@ $ npm run docker:down
 
 1. start tests
 ```
-$ yarn test
+$ yarn test:staged
 
 or
 
-$ npm test
+$ npm run test:staged
 ```
 
 ## :wrench: Technologies
