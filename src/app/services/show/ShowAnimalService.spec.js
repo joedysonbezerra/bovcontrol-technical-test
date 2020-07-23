@@ -42,4 +42,18 @@ describe('ShowAnimalService', () => {
       expect(error).toEqual(new NotFoundError('Animal'));
     }
   });
+  it('Should be able return animal, if find the animal', async () => {
+    const sut = makeSut();
+
+    const request = {
+      id: '5e7412262856dc7f5d5cd694',
+    };
+    const response = await sut.execute(request.id);
+
+    expect(response.id).toBe('5e7412262856dc7f5d5cd694');
+    expect(response.name).toBe('animal_1');
+    expect(response.age).toBe('6 Months');
+    expect(response.type).toBe('cow');
+    expect(response.weight).toBe(100);
+  });
 });
