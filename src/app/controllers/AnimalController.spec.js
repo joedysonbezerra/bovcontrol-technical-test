@@ -99,7 +99,7 @@ describe('Animal Controller', () => {
         params: {},
       };
       try {
-        await sut.show(httpRequest);
+        await sut.update(httpRequest);
       } catch (error) {
         expect(error.statusCode).toBe(400);
         expect(error).toEqual(new MissingParamError('id'));
