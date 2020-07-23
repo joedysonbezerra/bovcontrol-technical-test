@@ -2,6 +2,7 @@ import 'localenv';
 import express from 'express';
 import 'express-async-errors';
 import AppError from './app/utils/errors/AppError';
+import routes from './routes';
 
 class App {
   constructor() {
@@ -15,7 +16,9 @@ class App {
     this.server.use(express.json());
   }
 
-  routes() {}
+  routes() {
+    this.server.use(routes);
+  }
 
   exceptionHandler() {
     this.server.use((err, request, response, next) => {
