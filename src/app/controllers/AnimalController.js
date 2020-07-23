@@ -20,6 +20,14 @@ class AnimalController {
 
     return response.send();
   }
+
+  async update(request, response) {
+    const { params } = request;
+
+    if (!params.id) throw new MissingParamError('id');
+
+    return response.send();
+  }
 }
 
 export default AnimalController;
