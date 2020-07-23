@@ -7,5 +7,7 @@ module.exports = {
   coverageReporters: ['text', 'lcov'],
   testEnvironment: 'node',
   testMatch: ['tests/**/*.test.js', 'tests/**/*.spec.js'],
-  // transform: undefined,
+  transform: {
+    '.(js|jsx|ts|tsx)': '@sucrase/jest-plugin',
+  },
 };
