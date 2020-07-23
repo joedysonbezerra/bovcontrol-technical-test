@@ -21,5 +21,7 @@ module.exports = {
     camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
     'no-console': 'off',
+    'import/prefer-default-export': 'off',
+    'no-restricted-syntax': 'off',
   },
 };
