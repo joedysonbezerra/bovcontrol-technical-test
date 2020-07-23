@@ -18,7 +18,7 @@ class App {
   routes() {}
 
   exceptionHandler() {
-    this.app.use((err, request, response, next) => {
+    this.server.use((err, request, response, next) => {
       if (err instanceof AppError) {
         return response.status(err.statusCode).json({
           status: 'error',
