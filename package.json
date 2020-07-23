@@ -10,7 +10,11 @@
     "dev:debug": "nodemon --inspect src/server.js",
     "test": "jest --passWithNoTests --watch",
     "test:staged": "jest --passWithNoTests --verbose",
-    "test:coverage": "jest --passWithNoTests --collectCoverage"
+    "test:coverage": "jest --passWithNoTests --collectCoverage",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
