@@ -3,7 +3,7 @@ import { MissingParamError } from '../utils/errors/MissingParamError';
 class AnimalController {
   async store(request, response) {
     const { body } = request;
-    const requiredFields = ['name'];
+    const requiredFields = ['name', 'age'];
 
     for (const field of requiredFields) {
       if (!body[field]) throw new MissingParamError(field);
