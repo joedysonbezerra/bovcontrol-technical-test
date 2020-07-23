@@ -42,7 +42,7 @@ describe('ShowAnimalService', () => {
       expect(error).toEqual(new NotFoundError('Animal'));
     }
   });
-  it('Should be able return animal, if find the animal', async () => {
+  it('Should be able find the animal', async () => {
     const sut = makeSut();
 
     const request = {
