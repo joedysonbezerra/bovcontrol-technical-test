@@ -12,7 +12,7 @@ describe('Animal Controller', () => {
 
       const httpRequest = {
         body: {
-          age: 10,
+          dateOfBirth: new Date(2014, 6, 2),
           type: 'cow',
           weight: 100,
         },
@@ -24,7 +24,7 @@ describe('Animal Controller', () => {
         expect(error).toEqual(new MissingParamError('name'));
       }
     });
-    it('Should be able return 400 if no age is provided', async () => {
+    it('Should be able return 400 if no dateOfBirth is provided', async () => {
       const sut = makeSut();
 
       const httpRequest = {
@@ -38,7 +38,7 @@ describe('Animal Controller', () => {
         await sut.store(httpRequest);
       } catch (error) {
         expect(error.statusCode).toBe(400);
-        expect(error).toEqual(new MissingParamError('age'));
+        expect(error).toEqual(new MissingParamError('dateOfBirth'));
       }
     });
     it('Should be able return 400 if no type is provided', async () => {
@@ -47,7 +47,7 @@ describe('Animal Controller', () => {
       const httpRequest = {
         body: {
           name: 'any_name',
-          age: 10,
+          dateOfBirth: new Date(2014, 6, 2),
           weight: 100,
         },
       };
@@ -64,7 +64,7 @@ describe('Animal Controller', () => {
       const httpRequest = {
         body: {
           name: 'any_name',
-          age: 10,
+          dateOfBirth: new Date(2014, 6, 2),
           type: 'cow',
         },
       };

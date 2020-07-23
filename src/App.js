@@ -1,7 +1,7 @@
 import 'localenv';
 import express from 'express';
 import 'express-async-errors';
-import AppError from './utils/errors/AppError';
+import AppError from './app/utils/errors/AppError';
 
 class App {
   constructor() {

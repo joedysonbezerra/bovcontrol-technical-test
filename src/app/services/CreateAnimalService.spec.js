@@ -23,7 +23,7 @@ describe('CreateAnimalService', () => {
 
     const request = {
       name: 'any_name',
-      age: -1,
+      dateOfBirth: new Date(''),
       type: 'cow',
       weight: 100,
     };
@@ -31,7 +31,7 @@ describe('CreateAnimalService', () => {
       await sut.execute(request);
     } catch (error) {
       expect(error.statusCode).toBe(400);
-      expect(error).toEqual(new InvalidParamError('age'));
+      expect(error).toEqual(new InvalidParamError('dateOfBirth'));
     }
   });
   it('Should be able return 400 if an invalid weight is provided', async () => {
@@ -39,7 +39,7 @@ describe('CreateAnimalService', () => {
 
     const request = {
       name: 'any_name',
-      age: 10,
+      dateOfBirth: new Date(2014, 6, 2),
       type: 'cow',
       weight: -1,
     };
@@ -55,7 +55,7 @@ describe('CreateAnimalService', () => {
 
     const request = {
       name: 'any_name',
-      age: 10,
+      dateOfBirth: new Date(2014, 6, 2),
       type: 'cow',
       weight: 100,
     };
@@ -63,9 +63,11 @@ describe('CreateAnimalService', () => {
     const response = await sut.execute(request);
 
     expect(response.name).toBe('any_name');
-    expect(response.age).toBe(10);
+    expect(response.age).toBe('74 months');
     expect(response.type).toBe('cow');
     expect(response.weight).toBe(100);
-    expect(response).toEqual(new Animal('any_name', 10, 'cow', 100));
+    expect(response).toEqual(
+      new Animal('any_name', new Date(2014, 6, 2), 'cow', 100)
+    );
   });
 });

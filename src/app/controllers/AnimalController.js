@@ -7,7 +7,7 @@ class AnimalController {
 
     RequiredFields.validate({
       body,
-      requiredFields: ['name', 'age', 'type', 'weight'],
+      requiredFields: ['name', 'dateOfBirth', 'type', 'weight'],
     });
 
     return response.send();
