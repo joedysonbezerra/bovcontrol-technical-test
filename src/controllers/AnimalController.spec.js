@@ -6,55 +6,74 @@ const makeSut = () => {
 };
 
 describe('Animal Controller', () => {
-  it('Should be able return 400 if no name is provided', async () => {
-    const sut = makeSut();
+  describe('store', () => {
+    it('Should be able return 400 if no name is provided', async () => {
+      const sut = makeSut();
 
-    const httpRequest = {
-      body: {
-        age: 10,
-        type: 'cow',
-        weight: 100,
-      },
-    };
-    try {
-      await sut.store(httpRequest);
-    } catch (error) {
-      expect(error.statusCode).toBe(400);
-      expect(error).toEqual(new MissingParamError('name'));
-    }
-  });
-  it('Should be able return 400 if no age is provided', async () => {
-    const sut = makeSut();
+      const httpRequest = {
+        body: {
+          age: 10,
+          type: 'cow',
+          weight: 100,
+        },
+      };
+      try {
+        await sut.store(httpRequest);
+      } catch (error) {
+        expect(error.statusCode).toBe(400);
+        expect(error).toEqual(new MissingParamError('name'));
+      }
+    });
+    it('Should be able return 400 if no age is provided', async () => {
+      const sut = makeSut();
 
-    const httpRequest = {
-      body: {
-        name: 'any_name',
-        type: 'cow',
-        weight: 100,
-      },
-    };
-    try {
-      await sut.store(httpRequest);
-    } catch (error) {
-      expect(error.statusCode).toBe(400);
-      expect(error).toEqual(new MissingParamError('age'));
-    }
-  });
-  it('Should be able return 400 if no type is provided', async () => {
-    const sut = makeSut();
+      const httpRequest = {
+        body: {
+          name: 'any_name',
+          type: 'cow',
+          weight: 100,
+        },
+      };
+      try {
+        await sut.store(httpRequest);
+      } catch (error) {
+        expect(error.statusCode).toBe(400);
+        expect(error).toEqual(new MissingParamError('age'));
+      }
+    });
+    it('Should be able return 400 if no type is provided', async () => {
+      const sut = makeSut();
 
-    const httpRequest = {
-      body: {
-        name: 'any_name',
-        age: 10,
-        weight: 100,
-      },
-    };
-    try {
-      await sut.store(httpRequest);
-    } catch (error) {
-      expect(error.statusCode).toBe(400);
-      expect(error).toEqual(new MissingParamError('type'));
-    }
+      const httpRequest = {
+        body: {
+          name: 'any_name',
+          age: 10,
+          weight: 100,
+        },
+      };
+      try {
+        await sut.store(httpRequest);
+      } catch (error) {
+        expect(error.statusCode).toBe(400);
+        expect(error).toEqual(new MissingParamError('type'));
+      }
+    });
+    it('Should be able return 400 if no weight is provided', async () => {
+      const sut = makeSut();
+
+      const httpRequest = {
+        body: {
+          name: 'any_name',
+          age: 10,
+          type: 'cow',
+        },
+      };
+      try {
+        await sut.store(httpRequest);
+      } catch (error) {
+        expect(error.statusCode).toBe(400);
+        expect(error).toEqual(new MissingParamError('weight'));
+      }
+    });
   });
 });
