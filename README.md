@@ -134,7 +134,7 @@ Possible expected result
 }
 ```
 
-### 🚀 Start server with docker
+## 🚀 Start server with docker
 
 1.Before start, verify if you have docker-compose installed
 
